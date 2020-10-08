@@ -1,0 +1,392 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color:silver;
+    font-size: 14px;
+    background-color:rgb(43, 55, 59);
+    height: 10vh;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,.5); 
+    font-family: Arial, Helvetica, sans-serif;
+    color:silver;
+    /* position: fixed; */
+   
+}
+.fixedBar {
+    position: fixed;
+
+}
+
+.icon-bar{
+    background:silver;
+}
+/* .link {
+    padding: 0 5px;
+} */
+.btn{
+    background-color:silver;
+    color: black;
+    text-decoration: none;
+}
+
+
+.home {
+    font-family: Arial, Helvetica, sans-serif;
+    color: Silver;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.home:hover{
+    color:black;
+    background-color:silver;
+}
+.navbar-brand {
+    color: Silver;
+    text-transform: uppercase;
+    font-weight: bolder;    
+}
+
+.intro-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("professional.jpg");
+    background-size: cover;
+    background-size: center;
+    height: 100vh; 
+}
+
+
+html,
+body,
+header,
+.view {
+    height: 109%;
+}
+
+.content
+{
+    width: 80vw;
+    height: 70vh;
+	padding:50px 50px;
+    background: transparent ;
+	border-radius: 20px;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,.3);
+	justify-content: center;
+	align-items:center;
+    display:flex;
+    position: absolute;
+    top: 50px;
+  }
+	
+
+
+.contentsignup
+{
+    background: transparent ;
+	border-radius: 20px;
+    box-shadow: 0 0 20px 20px rgba(0,0,0,.3);
+    padding:50px 50px;
+	justify-content: center;
+	align-items:center;
+    display:flex;
+    top:50px;
+    width:100%;
+    max-width: 100%;
+    /* position: relative;  */
+
+}
+.description{
+    color:silver;
+    text-align: center;
+    top:50px;
+}
+
+.formBox h2
+{
+	margin:0;
+    padding:0;
+    color: silver;
+	font-size: 200%;
+	font-weight: bold;
+	margin-bottom: 20px;
+    text-align:center;
+}
+
+.head {
+	margin:0;
+    padding:0;
+    color: silver;
+	font-size: 200%;
+	font-weight: bold;
+    margin-bottom: 30px;
+    text-align:center;
+}
+
+.formBox h5 {
+    text-align:center;
+    margin-bottom: 30px;
+    color:silver;
+}
+.formBox{
+    margin: 0 auto;
+    display: block;
+}
+.formBox input
+{
+    margin-top: 5px;
+    align-items:center;
+
+}
+
+.formBox input[type="Password"],
+.formBox input[type="text"]
+{
+	height:35px;
+	width: 240px;
+	border:none;
+	border-radius:30px;
+	outline:none;
+    background-color:silver;
+    color:black;
+	justify-content:center;
+	/* align-items:center; */
+	display:block;
+	padding-left:40px;
+}
+
+.formBox input[type="submit"]
+{
+	background-color:silver;	
+	height:35px;
+	width: 150px;
+	color: black;	
+	border:none;
+	border-radius:30px;
+	outline:none;
+	cursor: pointer;
+    text-align: center;
+    justify-content:center;
+    box-sizing: border-box;  
+    margin-top: 40px; 
+}
+.formBox input[type="submit"]:hover
+{
+    background:black;
+    color:silver;
+}
+.error{
+    color:rgb(255, 99, 71);
+    padding: 0px 20px;
+    
+}
+.errors{
+    color:rgb(255, 99, 71);
+    
+}
+
+.formsBox input[type="text"],
+.formsBox input[type="Password"],
+.formsBox input[type="email"],
+.formsBox input[type="number"]
+{
+	height:35px;
+	width: 260px;
+	border:none;
+	border-radius:30px;
+	outline:none;
+    background-color:silver;
+    color:black;
+    justify-content:center;
+	align-items:center;
+    display:block;
+    padding-left:40px;
+    box-sizing: border-box;  
+}
+
+.formsBox input[type="submit"]
+{
+	background-color:silver;	
+	height:35px;
+	width: 150px;
+	color: black;	
+	border:none;
+	border-radius:30px;
+	outline:none;
+	cursor: pointer;
+    margin-left: 65px;
+    /* text-align: center;
+    justify-content:center;
+    display:flex; */
+}
+
+.formsBox input[type="submit"]:hover
+{
+    background:black;
+    color:silver;
+}
+
+.formsBox input
+{
+    margin-top: 5px;
+    align-items:center;
+    margin-left:15px;
+}
+
+a.forget {
+    text-decoration: none; 
+    color:silver;
+    font-size:14px;
+    text-align: center;
+}
+
+a.forget:hover{
+    text-decoration: none; 
+    color:black;
+}
+
+a{
+	color: hsl(0,0%,60%);
+	text-decoration:none;
+	font-size:13px;
+	text-align:center;
+	justify-content:center;
+	align-items:center;
+	display:flex;
+}
+
+a:hover{
+	color:black;
+}
+
+::Placeholder {
+	color:hsl(0,0%,50%);
+}
+
+.custo {
+	position: absolute;
+    /* padding:10px 38px; */
+    left: 18px; 
+    top: 32px; 
+    color:black;
+}
+.custo {
+	position:relative;
+}
+
+.cust {
+	position: absolute;
+    /* padding:10px 38px; */
+    left: 18px; 
+    top: 27px; 
+    color:black;
+}
+.cust {
+	position:relative;
+}
+
+.custError {
+	position:relative;
+}
+
+.custError {
+	position: absolute;
+    /* padding:10px 38px; */
+    left: 18px; 
+    top: 27px; 
+    color:red
+}
+
+.custs {
+	position: absolute;
+    /* padding:10px 38px; */
+    left: 35px; 
+    bottom: 28px; 
+    color:black;
+}
+
+.custs {
+	position:relative;
+}
+
+table {
+    align-items:center;
+    opacity: 1;
+
+}
+table th{
+    text-align: center;
+    background: silver;
+    color:black;
+}
+
+table tr {
+    border-bottom-style: inset;
+}
+
+.tableTop{
+    padding: 10px 10px;
+    margin-bottom:10px;;
+
+}
+
+.fixed{
+    position: sticky;
+
+}
+
+.Edit {
+    margin-bottom:30px;
+    color:silver;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 900px){
+
+
+    .content{
+        width: 100%;
+        max-height: 100%;
+    }
+}
+
+
+@media (max-width: 765px){
+
+    html,
+    body,
+    header,
+    .view {
+        height: 115%;
+    }
+
+    .containers{
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+    }
+
+    .contentsignup{
+        height: 100vh;
+        width:100%;
+    }
+
+@media (max-width: 300px){
+
+    .contentsignup{
+        height: 80vh;
+        width:80%;
+    }
+    .formsBox {
+        height: 90vh;
+    }
+    .inputAdjust{
+        /* width: 10vw; */
+        width:25%;
+    }
+
+}
+}

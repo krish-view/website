@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Giftbox</title>
+  <link rel ="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+        <header class="view intro-2">
+            <div class="header">
+            <nav class="navbar navbar-style navbar fixed-top">
+                <div class="container-fluid">   
+                        <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micron">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Giftbox</a>
+            </div>
+                    <div class="collapse navbar-collapse" id="micron">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="link"><a class="home" href="">Home</a></li>
+                        <li class="link"><a class="home"href="">About</a></li>
+                        <li class="link"><a class="home"href="">Contact</a></li>
+                        <li class="link"><a class="home" href="./website.html"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+                        <!-- <li class="link"><button id="clearall">Clear All</button></li> -->
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+            </nav>
+            <div class="container">
+                    <div class="row description">  
+                            <div id = "editFields">    
+                                </div>
+
+                            <div class="col-md-12">
+                            <h2 class="tableTop">User Information</h2>
+                            <div class="table-responsive">
+                                    <table class="table" id ="tablelist">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">First Name</th>
+                                                <th scope="col">Last Name</th>
+                                                <th scope="col">Mobile</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Actions</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="Data">
+                                            </tbody>
+                                          </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <script>
+                var list = "";
+                var total = 0;
+			var userList = JSON.parse(localStorage.getItem("userData"));
+			userList.forEach(function (arrayItem) {
+                total = total + 1;
+				list += "<tr id='demo'><td>"+ total +"</td><td>"+arrayItem.firstname+"</td><td>"+arrayItem.lastname+"</td><td>"+arrayItem.mobile+"</td><td>"+arrayItem.email+"</td><td>"+"<input type='submit' value='edit' id='edit-"+arrayItem.id+"'onclick='editForm(this.id)'> <input type='submit' value='Delete' id='delete-"+arrayItem.id+"' onclick='onDelete(this.id)'></td></tr>";
+			});
+            document.getElementById("Data").innerHTML = list;  
+
+            function onDelete(val){
+                let id = val.split('-');
+                var li = [];
+                userList.forEach(function (arrayItem) {
+                    if(arrayItem.id != id[1]){
+                        li.push(arrayItem);
+                    }
+			    });
+                localStorage.setItem("userData", JSON.stringify(li));
+                window.location.href = "./table.html";
+            }
+
+        function editForm(val){
+            let id = val.split('-');
+
+            var li = [];
+            userList.forEach(function (arrayItem)
+             {
+                if(arrayItem.id == id[1])
+                {
+                    editFields.innerHTML= `<div class="col-md-4 "> 
+                                                <h3 class= "Edit">Edit Details</h3> 
+                                                <form method="GET"  onsubmit="event.preventDefault();">            
+                                                    <input type = "text" name="firstname" value = "`+arrayItem.firstname+`" Placeholder="First Name" class="form-control" id="firstname" autocomplete="off">
+                                                        <span id="firstnameError" class="error"></span> 
+                                                    <input type = "text" name="lastname" value = "`+arrayItem.lastname+`" Placeholder="Last Name" class="form-control" id="lastname" autocomplete="off">  
+                                                        <span id="lastnameError" class="error"></span> 
+                                                    <input type = "text" name="email" value = "`+arrayItem.email+`" Placeholder="Email Id" class="form-control" id="email" autocomplete="off">
+                                                        <span id="emailError" class="error"></span>
+                                                    <input type = "text" name="mobile" value = "`+arrayItem.mobile+`" Placeholder="Mobile number" class="form-control" id="mobile" autocomplete="off">
+                                                        <span id="mobileError" class="error"></span>
+                                                        <div> <input type = "submit" name="Save" value= "Save" id= "save-`+arrayItem.id+`" onclick= "saveAction(this.id)"> </div>
+                                                 </form>
+                                             </div>`;
+                    }
+                });
+         }
+
+        function saveAction(val){
+            let id = val.split('-');
+
+            var li = [];
+            userList.forEach(function (arrayItem) {
+                if(arrayItem.id != id[1]){
+                    li.push(arrayItem);
+                } else{
+                    arrayItem.firstname = document.getElementById("firstname").value;
+                    arrayItem.lastname = document.getElementById("lastname").value;
+                    arrayItem.email =  document.getElementById("email").value;
+                    arrayItem.mobile = document.getElementById("mobile").value;
+                    li.push(arrayItem);
+                }
+            });
+            localStorage.setItem("userData", JSON.stringify(li));
+            editFields.innerHTML= "";
+            window.location.href = "./table.html";
+
+        }
+
+
+            </script>
+    </header>
+    <footer>
+        <div class="footer">
+             <p>Giftbox @ 2020 <br>  Welcome Page!</p>
+        </div>
+ 
+
+</footer>
+    </body>
+</html>
+ 

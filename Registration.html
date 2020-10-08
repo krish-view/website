@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Giftbox-Signup</title>
+  <link rel ="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="inserts.js"></script>
+  </head>
+  <body>    
+        <header class="view intro-2">
+            <!-- <div class="fixedBar"> -->
+                <div class="header">
+                <nav class="navbar navbar-style">
+                    <div class="container-fluid">   
+                            <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micron">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="website.html">Giftbox</a>
+                </div>
+                        <div class="collapse navbar-collapse" id="micron">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="link"><a class="home" href="">Home</a></li>
+                            <li class="link"><a class="home"href="">About</a></li>
+                            <li class="link"><a class="home"href="">Contact</a></li>
+                            <!-- <li class="link"><button class="btn btn-secondary btn-sm" type="button"><a class="btn" href="./Registration.html">Signup</a></button></li> -->
+                            <li class="link"><a class="home" href="./website.html"><span class="glyphicon glyphicon-user"></span>Signin</a></li>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    <!-- </div> -->
+                </nav>
+                <div class="containers">
+                <div class="col-lg-12 contentsignup">
+                    <div class= "formsBox">
+                    <h1 class="head">Registration Form</h1>
+                    <div class="inputAdjust">
+                                    <form name="my_Form" id= "my_Form" method="GET">            
+                                            <input type = "text" name="firstname" Placeholder="First Name" class="form-control" id="firstname" autocomplete="off" onblur="firstnameValidation()">
+                                            <i class="fa fa-user custs" aria-hidden="true"></i>  
+                                                <span id="firstnameError" class="error"></span> 
+                                                <input type = "text" name="lastname" Placeholder="Last Name" class="form-control" id="lastname" autocomplete="off" onblur="lastnameValidation()">
+                                                <i class="fa fa-user custs" aria-hidden="true"></i>
+                                                <span id="lastnameError" class="error"></span> 
+                                                <input type = "text" name="email" Placeholder="Email Id" class="form-control" id="email" autocomplete="off" onblur="emailValidation()">
+                                                <i class="fa fa-envelope fa-xs custs" aria-hidden="true"></i>
+                                                <span id="emailError" class="error"></span>
+                                                <input type = "text" name="mobile" Placeholder="Mobile number" class="form-control" id="mobile" autocomplete="off" onblur="mobileValidation()">
+                                                <i class="fa fa-phone custs" aria-hidden="true"></i>
+                                                <span id="mobileError" class="error"></span>
+                                                <input type = "Password" name="password" Placeholder="Password"class="form-control"  id="password" autocomplete="off" onblur="passwordValidation()">
+                                                <i class="fa fa-lock  custs" aria-hidden="true"></i>
+                                                <span id="passwordError" class="error"></span>   
+                                                <input type = "Password" name="Confirmpassword" Placeholder="Confirm Password" id="confirmpassword" class="form-control" autocomplete="off" onblur="confirmpasswordValidation()">
+                                                <i class="fa fa-lock custs" aria-hidden="true"></i>
+                                                <span id="confirmpasswordError" class="error"></span>
+                                                <div> <input type = "submit" name="Signup" value= "Signup"> </div>
+                                    </form>     
+                                </div>              
+                </div>
+            </div>
+        </div>
+        </div>
+        </header>
+        <footer class="footer">
+                <p>Giftbox @ 2020</p>
+            </footer>
+            <script type="text/javascript">
+
+               window.onload = function () {
+                    document.my_Form.onsubmit = function () { event.preventDefault(); return validation(); }
+                    document.getElementById("firstname").onblur  = firstnameValidation;
+                    document.getElementById("lastname").onblur = lastnameValidation;
+                    document.getElementById("email").onblur = emailValidation;
+                    document.getElementById("mobile").onblur = mobileValidation;
+                    document.getElementById("password").onblur = passwordValidation;
+                    document.getElementById("confirmpassword").onblur = confirmpasswordValidation;
+
+                }
+                function firstnameValidation() {
+                    var firstname = document.getElementById("firstname").value;
+                    if(firstname ==""){
+                        document.getElementById("firstnameError").innerHTML = " * Please fill the First name";
+                        return false;
+                     } else if(!isNaN(firstname)){
+                        document.getElementById("firstnameError").innerHTML = " * Please fill the Valid First Name";
+                        return false;
+                     } else {
+                        document.getElementById("firstnameError").innerHTML = "";
+                    }
+                }
+
+                function lastnameValidation() {
+                    var lastname = document.getElementById("lastname").value;
+                    if(lastname==""){
+                        document.getElementById("lastnameError").innerHTML = " * Please fill the Last name";
+                        return false;
+                    }
+                    else if(!isNaN(lastname) ){
+                        document.getElementById("lastnameError").innerHTML = " * Please fill the Valid Last Name";
+                        return false;
+                    } else {
+                        document.getElementById("lastnameError").innerHTML = "";
+                    }
+                
+                }
+
+                function emailValidation() {
+                    var email = document.getElementById("email").value;
+                    var emailcheck = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.][A-Za-z.]{2,6}$/;
+                    if(email==""){
+                        document.getElementById("emailError").innerHTML = " * Please fill the email";
+                        return false;
+                        // }else if((email.indexOf('@') <= 0) && (email.charAt(email.length-4)!='.'))
+                    } else if(!emailcheck.test(email)){
+                        document.getElementById("emailError").innerHTML = " * Please fill Valid email";
+                        return false;
+                    } else {
+                        document.getElementById("emailError").innerHTML = "";
+                    }
+                
+                }
+
+                function mobileValidation() {  
+                    var mobile = document.getElementById("mobile").value;
+                    var mobilecheck = /^[6789][0-9]{9}$/;   
+                    if(mobile==""){
+                        document.getElementById("mobileError").innerHTML = " * Please fill the Mobile Number";
+                        return false;
+                    }
+                //    else if(typeof (mobile) !== 'number' && isNaN(mobile)){
+                //         document.getElementById("mobileError").innerHTML = " * Please enter valid Mobile Number";
+                //        return false;
+                //     }else if(mobile.length!=10){
+                //         document.getElementById("mobileError").innerHTML = " * Number must be in 10 digit";
+                //        return false;
+                //     }
+                    else if(!mobilecheck.test(mobile)){
+                                document.getElementById("mobileError").innerHTML = " * Please enter valid Mobile Number";
+                            return false;
+                    } else {
+                        document.getElementById("mobileError").innerHTML = "";
+                    }
+                
+                }   
+
+                function passwordValidation() {
+                    var password = document.getElementById("password").value;
+                    if(password==""){
+                        document.getElementById("passwordError").innerHTML = " * Please fill the Password";
+                        return false;
+                    }
+                    else if(! (password.length >= 8 ))
+                    {
+                        document.getElementById("passwordError").innerHTML = " * Please fill the Strong Password";
+                        return false;
+                    }else {
+                        document.getElementById("passwordError").innerHTML = "";
+                    }  
+                }
+
+                function confirmpasswordValidation() {
+                    var password = document.getElementById("password").value;
+                    var confirmpassword = document.getElementById("confirmpassword").value;
+                    if(confirmpassword==""){
+                        document.getElementById("confirmpasswordError").innerHTML = " * Please fill the Confirm Password";
+                        return false;
+                    }else if(confirmpassword != password){
+                        document.getElementById("confirmpasswordError").innerHTML = " * Password Not Matching";
+                        return false;
+                    }else {
+                        document.getElementById("confirmpasswordError").innerHTML = "";
+                    }
+                }            
+
+            function validation(){
+                var valid = true;
+
+                var firstname = document.getElementById("firstname").value;
+                var lastname = document.getElementById("lastname").value;
+                var email = document.getElementById("email").value;
+                var mobile = document.getElementById("mobile").value;
+                var password = document.getElementById("password").value;
+                var confirmpassword = document.getElementById("confirmpassword").value;
+
+                if (!firstnameValidation()) valid = false;
+                if (!lastnameValidation()) valid = false;
+                if (!emailValidation()) valid = false;
+                if (!mobileValidation()) valid = false;
+                if (!passwordValidation()) valid = false;
+                if (!confirmpasswordValidation()) valid = false;
+                
+                return valid;
+                var userDetail = [];
+
+                 var user = JSON.parse(localStorage.getItem("userData"));
+                    if(user) {
+                        user.forEach(function (arrayItem) {
+                            userDetail.push(arrayItem);
+                        });
+                    }
+                    	
+                    var formDetails = {
+                        id : new Date().getTime(),
+                        firstname : document.getElementById("firstname").value,
+                        lastname : document.getElementById("lastname").value,
+                        mobile : document.getElementById("mobile").value,
+                        email : document.getElementById("email").value,
+                        password : document.getElementById("password").value
+                    }
+                    userDetail.push(formDetails);
+
+                    localStorage.setItem("userData",JSON.stringify(userDetail));
+                    // window.location.href = "./Registration.html";
+
+                    }
+
+            </script>
+    </body>
+</html>

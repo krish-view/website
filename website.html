@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Giftbox</title>
+  <link rel ="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
+        <header class="view intro-2">
+            <div class="header">
+                <nav class="navbar navbar-style navigation navbar">
+                    <div class="container-fluid">   
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micron">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="website.html">Giftbox</a>
+                            </div>
+                        <div class="collapse navbar-collapse nav-menu extend" id="micron">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="link"><a class="home" href="">Home</a></li>
+                                <li class="link"><a class="home"href="">About</a></li>
+                                <li class="link"><a class="home"href="">Contact</a></li>
+                                <!-- <li class="link"><button class="btn btn-secondary btn-sm" type="button"><a class="btn" href="./Registration.html">Signup</a></button></li> -->
+                                <li class="link"><a class="home" href="./Registration.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+             </div>
+          
+            <div class="container">
+                    <div class="row ">
+                        <div class="col-md-6 description">
+                            <h1>Description</h1>
+                            <p>Amazing Gifts are available!</p>
+                        </div>
+                        <div class="col-md-6 content">  
+                            <div class= "formBox">
+                            <h2 class="head">Sign in</h2>
+                            <h5>Use your Giftbox Account</h5>
+                                <form id="myForm" name="myForm" method="POST">
+                                    <i class= "fa fa-envelope custo" aria-hidden="true"></i>
+                                        <input type = "text" name="username" Placeholder="Username" id="username" onblur="usernameValidation()">
+                                        <span id="usernameError" class="errors"></span><br>
+                                    <i class="fa fa-lock fa-lg custo" aria-hidden="true"></i>
+                                        <input type = "Password" name="password" Placeholder="Password" id="password" onblur="passwordValidation()">
+                                        <span id="passwordError" class="errors"></span> <br> <span id="invalidError" class="errors"></span> 
+                                         <a style="text-decoration: none;"><input type = "submit" name="submit" value= "Login"></a><br>
+                                        <a class="forget" href ="#"> Forget Password ? </a>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+
+                window.onload = function () {
+                    document.myForm.onsubmit = function () { event.preventDefault(); return validation(); }
+                    document.getElementById("username").onblur  = usernameValidation;
+                    document.getElementById("password").onblur = usernameValidation;
+                }
+                function usernameValidation() {
+                    var username = document.getElementById("username").value;
+                    var userDetail = JSON.parse(localStorage.getItem("userData"));
+                        if(username==""){
+                            document.getElementById("usernameError").innerHTML = " * Please fill the Username";
+                            return false;
+                        }  
+                        else {
+                            document.getElementById("usernameError").innerHTML = "";
+                        }
+                    }
+
+                function passwordValidation() {
+                    var password = document.getElementById("password").value;
+                    var userDetail = JSON.parse(localStorage.getItem("userData"));
+                        if(password==""){
+                            document.getElementById("passwordError").innerHTML = " * Please fill the password";
+                            return false;
+                        }
+                        else {
+                            document.getElementById("passwordError").innerHTML = "";
+                        }
+                    }
+
+                   function validation(){
+                       var valids = true;
+                        var username = document.getElementById("username").value;
+                        var password = document.getElementById("password").value;
+
+                        if (!usernameValidation()) valids = false;
+                        if (!passwordValidation()) valids = false;
+                            return valids;
+
+                        var userDetail = JSON.parse(localStorage.getItem("userData"));
+                        for(i=0; i <= userDetail.length; i++){
+                            if ((username == userDetail[i].email )&&( password == userDetail[i].password)){   
+                                    window.location.href = "./table.html";
+                                    // return true;
+                            } 
+                            else {
+                                document.getElementById("invalidError").innerHTML = "* Password or Username invalid";
+                            }
+                        }
+                    }
+
+                </script>
+    </header>
+    <footer>
+    <p class="footer">Giftbox @ 2020</p>
+</footer>
+    </body>
+</html>
+ 
